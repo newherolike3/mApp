@@ -13,7 +13,7 @@
             <ion-avatar slot="start">
               <img src="../../public/assets/icon/icon.png" />
             </ion-avatar>
-            <ion-label>นายมรกต ทองพรหม</ion-label>
+            <ion-label>นายณัฐดนัย ทินกร </ion-label>
           </ion-item>
           <ion-item-options slot="end">
             <ion-item-option>เพิ่มเติม</ion-item-option>
@@ -24,7 +24,7 @@
             <ion-avatar slot="start">
               <img src="../../public/assets/icon/icon.png" />
             </ion-avatar>
-            <ion-label>นายอโนทัย ใจดี</ion-label>
+            <ion-label>นายขโมย ใจดำ</ion-label>
           </ion-item>
           <ion-item-options slot="end">
             <ion-item-option>เพิ่มเติม</ion-item-option>
@@ -35,7 +35,7 @@
             <ion-avatar slot="start">
               <img src="../../public/assets/icon/icon.png" />
             </ion-avatar>
-            <ion-label>นางสาววรรณดี สวยงาม</ion-label>
+            <ion-label>นางสาววันดี จันทร์วัน</ion-label>
           </ion-item>
           <ion-item-options slot="end">
             <ion-item-option>เพิ่มเติม</ion-item-option>

@@ -25,6 +25,9 @@
               <ion-button size="small" @click="buy(data.product_id)"
                 >ราคา {{ data.product_price }}</ion-button
               >
+              <ion-button size="small" color="danger" @click="del(data._id)"
+                >ลบ</ion-button
+              >
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -35,7 +38,6 @@
 
 <script>
 import axios from "axios";
-
 import {
   IonFab,
   IonFabButton,
@@ -54,9 +56,7 @@ import {
   IonGrid,
   IonCol,
 } from "@ionic/vue";
-
 import { add } from "ionicons/icons";
-
 export default {
   name: "Tab2",
   components: {
@@ -90,6 +90,29 @@ export default {
     this.allProduct();
   },
   methods: {
+    async del(id){
+      const alert = await alertController.create({
+        header: "ยืนยันการลบข้อมูลสินค้า",
+        buttons: [
+          {
+            text: "ยืนยัน",
+            handler: async () => {
+              console.log("ยืนยัน " + id);
+              await axios.delete("http://localhost:3000/mongo/products/" + id)
+              this.allProduct();
+            },
+          },
+          {
+            text: "ยกเลิก",
+            handler: () => {
+              console.log("ยกเลิก");
+            },
+          },
+        ],
+      });
+      await alert.present();
+      
+    },
     async allProduct() {
       try {
         const res = await axios.get("http://localhost:3000/mongo/products");
@@ -126,13 +149,11 @@ export default {
                 // console.log("product_id : " + data.product_id);
                 // console.log("product_name : " + data.product_name);
                 // console.log("product_price : " + data.product_price);
-
                 await axios
                   .post("http://localhost:3000/mongo/products", data)
                   .then(function (res) {
                     console.log(res.data.message);
                   });
-
                   this.allProduct();
               } else {
                 console.log("กรุณากรอกข้อมูลให้ครบถ้วน");
@@ -148,7 +169,6 @@ export default {
           },
         ],
       });
-
       await alert.present();
     },
     async buy(id) {
